@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IDiFY Solutions - Index</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" alt="" width=200></a>
+	<ul class="dropdown">
+        	<li><a>Employee Profile</a>
+        		<ul class="sub_menu">
+        			<li><a href="edituser">Edit Profile</a></li>
+				<li><a href="changepwd">Change Password</a></li>
+				<li><a href="logout">Logout</a></li>
+        		</ul>
+        	</li>
+        	<li><a>Leaves</a>
+        		<ul class="sub_menu">
+        			<li><a href="applyforleave">Apply for Leave</a></li>
+				<li><a href="userleave">My Leave</a></li>
+				<li><a href="leavesummary">Leave Summary</a></li>
+			</ul>
+        	</li>
+        	<li><a>Projects</a>
+        		<ul class="sub_menu">
+				<li><a href="myprojects">Assigned Projects</a></li>
+        		</ul>
+        	</li>
+		<li><a>Payroll</a>
+        		<ul class="sub_menu">
+        			<li><a href="salary_slip">Salary Slip</a></li>
+        		</ul>
+        	</li>
+		<li><a>DMS</a>
+        		<ul class="sub_menu">
+        			<li><a href="upload">Upload a Document</a></li>
+				<li><a href="mydocs">My Documents</a></li>
+        		</ul>
+        	</li>
+		<li><a>Contacts</a>
+        		<ul class="sub_menu">
+        			<li><a href="addcontact">Add A Contact</a></li>
+				<li><a href="mycontacts">My Contacts</a></li>
+        		</ul>
+        	</li>
+		<li><a>Announcement</a>
+        		<ul class="sub_menu">
+				<a href="announcements">Announcements</a>
+        		</ul>
+        	</li>
+        </ul>
+	</div>
+	<div id="body">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="applyforleave"><span>Apply For Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="announcements"><span>View Announcements</span></a></center>
+				</li>
+				<li>
+				<center><a href="myprojects"><span>My Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="userleave"><span>My Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="salary_slip"><span>Salary Slip</span></a></center>
+				</li>
+				<li>
+				<center><a href="mycontacts"><span>My Contacts</span></a></center>
+				</li>
+				<li>
+				<center><a href="mydocs"><span>My Documents</span></a></center>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+				<h2>My Documents</h2>
+<div style="margin-left:25px;"><br>
+{% if msg %}
+<h3>{{msg}}</h3>
+{% else %}
+<table>
+<tr><th><h3><b>Document Type</h3></th><th><h3><b>Description</h3></th><th><h3><b>Action</h3></th></tr>
+{% for a in obj %}
+<tr><td><h3>{{a.doctype}}</h3></td><td><h3>{{a.desc}}</h3></td><td><h3><a href="media/{{a.docfile}}">Download</a></h3></td></tr>
+{% endfor %}
+</table>
+{% endif %}
+</div>
+	</div></div>
+	<div id="footer">
+	</div>
+</body>
+</html>

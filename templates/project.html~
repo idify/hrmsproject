@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>IDiFY Solutions - Apply for Leave</title>
+{% load staticfiles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul>
+		<li>
+			<a>user profile</a>
+			<div style="z-index:100;">
+		<ul>
+			<li><a href="edituser">edit profile</a></li>
+			<li><a href="empchangepwd">change password</a></li>
+			<li><a href="logout">logout</a></li>
+		</ul>
+			</div>
+		</li>
+		<li>
+			<a>leaves</a>
+		<ul>
+			<li><a href="applyforleave">apply for leave</a></li>
+			<li><a href="userleave">my leave</a></li>
+			<li><a href="leavesummary">leave summary</a></li>
+		</ul>
+		</li>
+		<li class="selected">
+			<a>projects</a>
+		<ul>
+			<li><a href="myprojects">Assigned Projects</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>payroll</a>
+		<ul>
+			<li><a href="salary_slip">Salary Slip</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>dms</a>
+		<ul>
+			<li><a href="upload">Upload a Document</a></li>
+			<li><a href="mydocs">My Documents</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>contacts</a>
+		<ul>
+			<li><a href="addcontact">Add A Contact</a></li>
+			<li><a href="mycontacts">My Contacts</a></li>
+		</ul>
+		</li>
+		<li>
+			<a href="announcements">announcement</a>
+		</li>
+	</ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="applyforleave"><span>Apply For Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="announcements"><span>View Announcements</span></a></center>
+				</li>
+				<li>
+				<center><a href="myprojects"><span>My Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="userleave"><span>My Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="salary_slip"><span>Salary Slip</span></a></center>
+				</li>
+				<li>
+				<center><a href="mycontacts"><span>My Contacts</span></a></center>
+				</li>
+				<li>
+				<center><a href="mydocs"><span>My Documents</span></a></center>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+		<h2>My Project Details</h2><br>
+		<h3><table width=100%>
+		<tr><th align=left>Title</th><td>{{obj.title}}</td></tr>
+		<tr><th align=left>Technology</th><td>{{obj.tech}}</td></tr>
+		<tr><th align=left>Start Date</th><td>{{obj.sdate}}</td></tr>
+		<tr><th align=left>End Date</th><td>{{obj.edate}}</td></tr>
+		<tr><th align=left>Client ID</th><td>{{obj.clientid}}</td></tr>
+		<tr><th align=left>Description</th><td>{{obj.desc}}</td></tr>
+		<tr><th align=left colspan=2>Project Members</th></tr>
+		{% for a in obj2 %}
+		<tr><td colspan=2>{{a.member_name}}</td></tr>
+		{% endfor %}
+		</table></h3>
+		</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

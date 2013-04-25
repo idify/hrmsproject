@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>IDiFY Solutions - Apply for Leave</title>
+{% load staticfiles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul class="dropdown">
+        	<li><a>Employee Profile</a>
+        		<ul class="sub_menu">
+        			<li><a href="edituser">Edit Profile</a></li>
+				<li><a href="changepwd">Change Password</a></li>
+				<li><a href="logout">Logout</a></li>
+        		</ul>
+        	</li>
+        	<li><a>Leaves</a>
+        		<ul class="sub_menu">
+        			<li><a href="applyforleave">Apply for Leave</a></li>
+				<li><a href="userleave">My Leave</a></li>
+				<li><a href="leavesummary">Leave Summary</a></li>
+			</ul>
+        	</li>
+        	<li><a>Projects</a>
+        		<ul class="sub_menu">
+				<li><a href="myprojects">Assigned Projects</a></li>
+        		</ul>
+        	</li>
+		<li><a>Payroll</a>
+        		<ul class="sub_menu">
+        			<li><a href="salary_slip">Salary Slip</a></li>
+        		</ul>
+        	</li>
+		<li><a>DMS</a>
+        		<ul class="sub_menu">
+        			<li><a href="upload">Upload a Document</a></li>
+				<li><a href="mydocs">My Documents</a></li>
+        		</ul>
+        	</li>
+		<li><a>Contacts</a>
+        		<ul class="sub_menu">
+        			<li><a href="addcontact">Add A Contact</a></li>
+				<li><a href="mycontacts">My Contacts</a></li>
+        		</ul>
+        	</li>
+		<li><a>Announcement</a>
+        		<ul class="sub_menu">
+				<a href="announcements">Announcements</a>
+        		</ul>
+        	</li>
+        </ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>IDIFY SOLUTIONS LLP</h3>
+			<ul>
+				<li><BR><BR><BR><BR><BR>
+				<center>HRMS</center><BR><BR><BR><BR><BR>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+		<h2>Apply for leave</h2>
+		<h3>{{ msg }}</h2><br><br>
+<form name="usrleaveform" action="leaveapplied" onsubmit="return validateform()" method="post">{% csrf_token %}
+<label for="type"> <span>leave type</span>
+<select name="type">
+<option value="Select" selected="selected">Select</option>
+<option value="RH">RH Leave</option>
+<option value="Personal">Personal Leave</option>
+<option value="Casual">Casual Leave</option>
+<option value="Marriage">Marriage Leave</option>
+<option value="Bevearment">Bevearment Leave</option>
+<option value="Compulsary">Compulsary Leave</option>
+</select>
+<label for="frm"> <span>from date</span>
+<input type="text" name="frmdate" id="datepicker">
+</label>
+<label for="to"> <span>to date</span>
+<input type="text" name="todate" id="datepicker1">
+</label>
+<label for="desc"> <span>description</span>
+<textarea rows="4" cols="40" name="desc">
+</textarea>
+</label>
+<input type="submit" value="" id="submit">
+<input type="reset" value="" id="reset">
+</form>
+		</div>
+	</div>
+	<div id="footer">
+		<div>
+			<p>
+				<span>2023 &copy; Illumelabs Diagnostic Center.</span><a href="#" >Terms of Service</a> | <a href="#" >Privacy Policy</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

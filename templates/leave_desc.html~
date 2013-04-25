@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>IDiFY Solutions - Leave Summary</title>
+{% load staticfiles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+	<ul>
+		<li>
+			<a>user profile</a>
+			<div style="z-index:100;">
+		<ul>
+			<li><a href="edituser">edit profile</a></li>
+			<li><a>change password</a></li>
+		</ul>
+			</div>
+		</li>
+		<li class="selected">
+			<a>leaves</a>
+			<div style="z-index:100;">
+		<ul>
+			<li><a href="applyforleave">apply for leave</a></li>
+			<li><a>my leave</a></li>
+			<li><a href="leavesummary">leave summary</a></li>
+		</ul>
+			</div>
+
+		</li>
+		<li>
+			<a>projects</a>
+		</li>
+		<li>
+			<a>payroll</a>
+		</li>
+		<li>
+			<a>dms</a>
+		</li>
+		<li>
+			<a>contacts</a>
+		</li>
+		<li>
+			<a>announcement</a>
+		</li>
+	</ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>IDIFY SOLUTIONS LLP</h3>
+			<ul>
+				<li><BR><BR><BR><BR><BR>
+				<center>HRMS</center><BR><BR><BR><BR><BR>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+		<h2>My Leave Summary</h2><br><br>
+		<div style="margin-left:20px;"><h3>
+		<table width="70%" border=0 cellpadding=6 cellspacing=6>
+		<tr><td>Leave Type</td><td>{{ leavetype }}</td></tr>
+		<tr><td>From Date</td><td>{{ frm }}</td></tr>
+		<tr><td>To Date</td><td>{{ to }}</td></tr>
+		<tr><td>Description</td><td>{{ desc }}</td></tr>
+		<tr><td>Status</td><td>{{ status }}</td></tr>
+		</table></div></h3>
+		</div>
+	</div>
+	<div id="footer">
+		<div>
+			<p>
+				<span>2023 &copy; Illumelabs Diagnostic Center.</span><a href="#" >Terms of Service</a> | <a href="#" >Privacy Policy</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IDiFY Solutions - Index</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+<script>
+function open_win() 
+{
+window.open("http://localhost:8000/generate_slip");
+}
+</script>
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul>
+		<li>
+			<a>user profile</a>
+			<div style="z-index:100;">
+		<ul>
+			<li><a href="edituser">edit profile</a></li>
+			<li><a href="empchangepwd">change password</a></li>
+			<li><a href="logout">logout</a></li>
+		</ul>
+			</div>
+		</li>
+		<li>
+			<a>leaves</a>
+		<ul>
+			<li><a href="applyforleave">apply for leave</a></li>
+			<li><a href="userleave">my leave</a></li>
+			<li><a href="leavesummary">leave summary</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>projects</a>
+		<ul>
+			<li><a href="myprojects">Assigned Projects</a></li>
+		</ul>
+		</li>
+		<li class="selected">
+			<a>payroll</a>
+		<ul>
+			<li><a href="salary_slip">Salary Slip</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>dms</a>
+		<ul>
+			<li><a href="upload">Upload a Document</a></li>
+			<li><a href="mydocs">My Documents</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>contacts</a>
+		<ul>
+			<li><a href="addcontact">Add A Contact</a></li>
+			<li><a href="mycontacts">My Contacts</a></li>
+		</ul>
+		</li>
+		<li>
+			<a href="announcements">announcement</a>
+		</li>
+	</ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="applyforleave"><span>Apply For Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="announcements"><span>View Announcements</span></a></center>
+				</li>
+				<li>
+				<center><a href="myprojects"><span>My Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="userleave"><span>My Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="salary_slip"><span>Salary Slip</span></a></center>
+				</li>
+				<li>
+				<center><a href="mycontacts"><span>My Contacts</span></a></center>
+				</li>
+				<li>
+				<center><a href="mydocs"><span>My Documents</span></a></center>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+				<h2>Generate Salary Slip</h2>
+<h3><div style="margin-left:25px;">Please Select Month and Year:</div></h3><br><br>
+<form action="processsalary" method="post">{% csrf_token %}
+<label for="month"><span>month</span>
+<select name="month">
+<option name="jan" value="1">January</option>
+<option name="feb" value="2">February</option>
+<option name="mar" value="3">March</option>
+<option name="apr" value="4">April</option>
+<option name="may" value="5">May</option>
+<option name="jun" value="6">June</option>
+<option name="jul" value="7">July</option>
+<option name="aug" value="8">August</option>
+<option name="sep" value="9">September</option>
+<option name="oct" value="10">October</option>
+<option name="nov" value="11">November</option>
+<option name="dec" value="12">December</option>
+</select>
+</label>
+<label for="year"><span>year</span>
+<select name="year">
+<option name="2013" value="2013">2013</option>
+<option name="2014" value="2014">2014</option>
+<option name="2015" value="2015">2015</option>
+<option name="2016" value="2016">2016</option>
+<option name="2017" value="2017">2017</option>
+<option name="2018" value="2018">2018</option>
+<option name="2019" value="2019">2019</option>
+<option name="2020" value="2020">2020</option>
+</select>
+</label>
+<label>
+<input type="submit" id="submit" value="">
+</label>
+</form>
+	</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

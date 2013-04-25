@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IDiFY Solutions - Index</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" alt="" width=200></a>
+	<ul>
+		<li>
+			<a>user profile</a>
+		<ul>
+			<li><a href="edituser">edit profile</a></li>
+			<li><a href="changepwd">change password</a></li>
+			<li><a href="logout">logout</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>leaves</a>
+			<div style="z-index:100;">
+		<ul>
+			<li><a href="applyforleave">apply for leave</a></li>
+			<li><a href="userleave">my leave</a></li>
+			<li><a href="leavesummary">leave summary</a></li>
+		</ul>
+			</div>
+
+		</li>
+		<li>
+			<a>projects</a>
+		<ul>
+			<li><a href="myprojects">Assigned Projects</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>payroll</a>
+		<ul>
+			<li><a href="salary_slip">Salary Slip</a></li>
+		</ul>
+		</li>
+		<li class="selected">
+			<a>dms</a>
+		<ul>
+			<li><a href="upload">Upload a Document</a></li>
+			<li><a href="mydocs">My Documents</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>contacts</a>
+		<ul>
+			<li><a href="addcontact">Add A Contact</a></li>
+			<li><a href="mycontacts">My Contacts</a></li>
+		</ul>
+		</li>
+		<li>
+			<a href="announcements">announcement</a>
+		</li>
+	</ul>
+	</div>
+	<div id="body">
+		<div class="sidebar">
+			<h3>idify solutions llp</h3>
+		</div>
+		<div class="content">
+				<h2>Upload a Document</h2>
+<div style="margin-left:25px;"><br><h3>{{msg}}</h3><br><br>
+<form action="savedoc" name="docform" method="post" enctype="multipart/form-data">{% csrf_token %}
+<label for="type"> <span>document type</span>
+<select name=type>
+<option value="Personal">Personal</option>
+<option value="Financial">Financial</option>
+<option value="Professional">Professional</option>
+</select>
+</label>
+<label><span>select your file</span>
+<input type="file" name="docfile">
+</label>
+<label><span>description</span>
+<input type="text" name="desc">
+</label>
+&nbsp;
+<input type=submit id=submit value="">
+</form>
+</div>
+	</div></div>
+	<div id="footer">
+	</div>
+</body>
+</html>

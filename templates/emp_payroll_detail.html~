@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IDiFY Solutions - Index</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul>
+		<li>
+			<a>admin profile</a>
+			<ul>
+				<li><a href="adminprofile">edit profile</a></li>
+				<li><a href="changepwd">change password</a></li>
+				<li><a href="logout">logout</a></li>
+			</ul>
+		</li>
+		<li>
+			<a>user</a>
+			<div style="z-index:100;">
+		<ul class="abcd">
+			<li><a href="adduser">add user</a></li>
+			<li><a href="allusers">all users</a></li>
+			<li><a href="allcontacts">user contacts</a></li>
+		</ul>
+			</div>
+		</li>
+		<li>
+			<a>leaves</a>
+			<ul>
+				<li><a href="usrs_leaves">User Leave</a></li>
+				<li><a href="admnleavesummary">Leave Summary</a></li>
+				<li><a href="approve">Approve Leave</a></li>
+			</ul>
+		</li>
+		<li>
+			<a>projects</a>
+			<ul>
+				<li><a href="createproject">create project</a></li>
+				<li><a href="allproject">all projects</a></li>
+			</ul>
+		</li>
+		<li class="selected">
+			<a href="emp_payroll">payroll</a>
+		</li>
+		<li>
+			<a href="alldocd">dms</a>
+		</li>
+		<li>
+			<a>announcement</a>
+			<ul>
+				<li><a href="create_announcement">to all</a></li>
+				<li><a href="view_announcements">view all</a></li>
+			</ul>
+		</li>
+	</ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="createproject"><span>Create A Project</span></a></center>
+				</li>
+				<li>
+				<center><a href="approve"><span>Approve Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="create_announcement"><span>Create Announcement</span></a></center>
+				</li>
+				<li>
+				<center><a href="usrs_leaves"><span>User Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="emp_payroll"><span>Employees Payroll</span></a></center>
+				</li>
+				<li>
+				<center><a href="allproject"><span>View All Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="view_announcements"><span>View Announcements</span></a></center>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+		<h2>{{obj1.f_name}}&nbsp;{{obj1.l_name}} - Payroll Details</h2>
+		<h3><br>
+		<table width="80%" cellspacing=3 cellpadding=3>
+		<tr><th align=left>Salary for Month</th><td>
+		{% ifequal month 1 %}January{% endifequal %}
+		{% ifequal month 2 %}February{% endifequal %}
+		{% ifequal month 3 %}March{% endifequal %}
+		{% ifequal month 4 %}April{% endifequal %}
+		{% ifequal month 5 %}May{% endifequal %}
+		{% ifequal month 6 %}June{% endifequal %}
+		{% ifequal month 7 %}July{% endifequal %}
+		{% ifequal month 8 %}August{% endifequal %}
+		{% ifequal month 9 %}September{% endifequal %}
+		{% ifequal month 10 %}October{% endifequal %}
+		{% ifequal month 11 %}November{% endifequal %}
+		{% ifequal month 12 %}December{% endifequal %}
+		&nbsp;&nbsp;{{year}}</td></tr>
+		{% if msg %}
+		<th align=left>Status</th><td>{{msg}}</td>
+		{% else %}
+		{% ifequal obj2.issued 1 %}
+		<tr><th align=left>Status</th><td>Salary Slip Generated</td></tr>
+		{% else %}
+		<tr><th align=left>Status</th><td>Salary Slip Not Generated</td></tr>
+		{% endifequal %}
+		<tr><th align=left>Basic</th><td>{{obj2.basic}}</td></tr>
+		<tr><th align=left>HRA</th><td>{{obj2.hra}}</td></tr>
+		<tr><th align=left>Conveyance</th><td>{{obj2.convynce}}</td></tr>
+		<tr><th align=left>Medical</th><td>{{obj2.med}}</td></tr>
+		<tr><th align=left>Bonus</th><td>{{obj2.bonus}}</td></tr>
+		{% ifequal obj2.issued 1 %}
+		<tr><th align=left>Issued On</th><td>{{obj2.issue_date}}</td></tr>
+		{% endifequal %}
+		{% endif %}
+		</table></h3>
+		</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

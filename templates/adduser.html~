@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IDiFY Solutions</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<script>
+$(function() {
+$( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
+});
+function chk()
+{
+if(document.login_form.fname.value=="")
+{
+alert("Please enter first name");
+document.login_form.fname.focus();
+return false;
+}
+if(document.login_form.lname.value=="")
+{
+alert("Please enter last name");
+document.login_form.lname.focus();
+return false;
+}
+if(document.login_form.mail.value=="")
+{
+alert("Please enter Email id")
+document.login_form.mail.focus();
+return false;
+}
+if(document.login_form.desg.value=="")
+{
+alert("Please enter designation");
+document.login_form.desg.focus();
+return false;
+}
+if(document.login_form.sal.value=="")
+{
+alert("Please enter salary");
+document.login_form.sal.focus();
+return false;
+}
+if(document.login_form.doj.value=="")
+{
+alert("Please enter date of joining");
+document.login_form.doj.focus();
+return false;
+}
+if(document.login_form.contact.value=="")
+{
+alert("Please enter contact no.");
+document.login_form.contact.focus();
+return false;
+}
+return true;
+}
+</script>
+</head>
+<body>
+<div id="header">
+{% load staticfiles %}
+<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" alt="" width=200></a>
+	<ul class="dropdown">
+        	<li><a>Admin Profile</a>
+        		<ul class="sub_menu">
+        			 <li><a href="adminprofile">Edit Profile</a></li>
+        			 <li><a href="changepwd">Change Password</a></li>
+        			 <li><a href="logout">Logout</a></li>
+        		</ul>
+        	</li>
+        	<li><a>Employees</a>
+        		<ul class="sub_menu">
+        			<li><a href="adduser">Add an Employee</a></li>
+				<li><a href="allusers">All Users</a></li>
+				<li><a href="allcontacts">User Contacts</a></li>
+			</ul>
+        	</li>
+        	<li><a>Leave</a>
+        		<ul class="sub_menu">
+				<li><a href="usrs_leaves">User Leave</a></li>
+				<li><a href="admnleavesummary">Leave Summary</a></li>
+				<li><a href="approve">Approve Leave</a></li>
+        		</ul>
+        	</li>
+		<li><a>Projects</a>
+        		<ul class="sub_menu">
+        			<li><a href="createproject">Create Project</a></li>
+				<li><a href="allproject">All Projects</a></li>
+        		</ul>
+        	</li>
+		<li><a>Payroll</a>
+        		<ul class="sub_menu">
+        			<li><a href="emp_payroll">Employee Payroll</a></li>
+        		</ul>
+        	</li>
+		<li><a>DMS</a>
+        		<ul class="sub_menu">
+        			<li><a href="alldocs">Employee Documents</a></li>
+        		</ul>
+        	</li>
+		<li><a>Announcement</a>
+        		<ul class="sub_menu">
+				<li><a href="create_announcement">Create Announcement</a></li>
+				<li><a href="view_announcements">View All</a></li>
+        		</ul>
+        	</li>
+        </ul>
+</div>
+<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="createproject"><span>Create A Project</span></a></center>
+				</li>
+				<li>
+				<center><a href="approve"><span>Approve Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="create_announcement"><span>Create Announcement</span></a></center>
+				</li>
+				<li>
+				<center><a href="usrs_leaves"><span>User Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="emp_payroll"><span>Employees Payroll</span></a></center>
+				</li>
+				<li>
+				<center><a href="allproject"><span>View All Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="view_announcements"><span>View Announcements</span></a></center>
+				</li>
+			</ul>
+		</div>
+<div class="content"><h2>Add an Employee</h2>
+<h3>Please fill following Details to add an Employee<br>{{ msg }}</h3><br><br>
+<form action="useradded" name="login_form" method="get" onsubmit="return chk()">{% csrf_token %}
+<label for="firstname"> <span>first name*</span>
+<input type="text" name="fname">
+</label>
+<label for="lastname"> <span>last name*</span>
+<input type="text" name="lname">
+</label>
+<label for="email"> <span>email ID*</span>
+<input type="text" name="mail">
+</label>
+<label for="desg"> <span>designation*</span>
+<input type="text" name="desg">
+</label>
+<label for="sal"> <span>salary*</span>
+<input type="text" name="sal">
+</label>
+<label for="doj"> <span>date of joining*</span>
+<input type="text" name="doj" id="datepicker">
+</label>
+<label for="contact"> <span>contact no.</span>
+<input type="text" name="contact">
+</label>
+<input type="submit" value="" id="submit">
+</form>
+</div>
+</div>	
+<div id="footer">
+</div>
+</body>
+</html>

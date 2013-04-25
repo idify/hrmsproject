@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IDiFY Solutions - Index</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<script>
+$(function() {
+$( "#sdate" ).datepicker({ dateFormat: "yy-mm-dd" });
+});
+$(function() {
+$( "#edate" ).datepicker({ dateFormat: "yy-mm-dd" });
+});
+</script>
+<script language="javascript">
+function moveoutid()
+{
+	var sda = document.getElementById('xxx');
+	var len = sda.length;
+	var sda1 = document.getElementById('yyy');
+	for(var j=0; j<len; j++)
+	{
+		if(sda[j].selected)
+		{
+			var tmp = sda.options[j].text;
+			var tmp1 = sda.options[j].value;
+			sda.remove(j);
+			j--;
+			var y=document.createElement('option');
+			y.text=tmp;
+			try
+			{sda1.add(y,null);
+			}
+			catch(ex)
+			{
+			sda1.add(y);
+			}
+		}
+	}
+}
+function moveinid()
+{
+	var sda = document.getElementById('xxx');
+	var sda1 = document.getElementById('yyy');
+	var len = sda1.length;
+	for(var j=0; j<len; j++)
+	{
+		if(sda1[j].selected)
+		{
+			var tmp = sda1.options[j].text;
+			var tmp1 = sda1.options[j].value;
+			sda1.remove(j);
+			j--;
+			var y=document.createElement('option');
+			y.text=tmp;
+			try
+			{
+				sda.add(y,null);
+			}
+			catch(ex)
+			{
+				sda.add(y);
+			}
+
+		}
+	}	
+}
+function count()
+{
+	var sda1 = document.getElementById('yyy').length;
+	document.getElementById('hide').value=sda1;
+	var sda = document.getElementById('yyy');
+	var values = new Array();
+	var len=sda.length;
+	for(var i=0;i<len;i++)
+	{
+		values.push(sda.options[i].value);
+	}
+	var allValues = values.join(";");
+	document.getElementById('name_hide').value=allValues;
+}
+</script>
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul>
+		<li>
+			<a>admin profile</a>
+			<ul>
+				<li><a href="adminprofile">edit profile</a></li>
+				<li><a href="changepwd">change password</a></li>
+				<li><a href="logout">logout</a></li>
+			</ul>
+		</li>
+		<li>
+			<a>user</a>
+			<div style="z-index:100;">
+		<ul class="abcd">
+			<li><a href="adduser">add user</a></li>
+			<li><a href="allusers">all users</a></li>
+			<li><a href="allusers">user contacts</a></li>
+		</ul>
+			</div>
+		</li>
+		<li>
+			<a>leaves</a>
+			<ul>
+				<li><a href="usrs_leaves">User Leave</a></li>
+				<li><a href="admnleavesummary">Leave Summary</a></li>
+				<li><a href="approve">Approve Leave</a></li>
+			</ul>
+		</li>
+		<li class="selected">
+			<a>projects</a>
+			<ul>
+				<li><a href="createproject">create project</a></li>
+				<li><a href="allproject">all projects</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="emp_payroll">payroll</a>
+		</li>
+		<li>
+			<a href="alldocs">dms</a>
+		</li>
+		<li>
+			<a>announcement</a>
+			<ul>
+				<li><a href="create_announcement">to all</a></li>
+				<li><a href="view_announcements">view all</a></li>
+			</ul>
+		</li>
+	</ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="createproject"><span>Create A Project</span></a></center>
+				</li>
+				<li>
+				<center><a href="approve"><span>Approve Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="create_announcement"><span>Create Announcement</span></a></center>
+				</li>
+				<li>
+				<center><a href="usrs_leaves"><span>User Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="emp_payroll"><span>Employees Payroll</span></a></center>
+				</li>
+				<li>
+				<center><a href="allproject"><span>View All Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="view_announcements"><span>View Announcements</span></a></center>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+		<h2>Create a Project</h2><br><h3>{{ msg }}</h3><br>
+		<form action="process_project" method="post" name="test_form" onsubmit="count()">{% csrf_token %}
+		<label for="title"><span>project title*</span>
+		<input type="text" name="title">
+		</label>
+		<label for="tech"><span>technology*</span>
+		<input type="text" name="tech">
+		</label>
+		<label for="desc"><span>description*</span>
+		<textarea name="desc" rows="3" cols="10"></textarea>
+		</label>
+		<label for="sdate"><span>start date*</span>
+		<input type="text" id="sdate" name="sdate">
+		</label>
+		<label for="edate"><span>end date*</span>
+		<input type="text" id="edate" name="edate">
+		</label>
+		<label for="mem1"><span>select members*</span>
+		<select multiple id="xxx" size="10" name="xxx">
+		{% for a in obj %}
+			<option name={{ a.usr_id }}>{{a.usr_id}}.&nbsp;{{ a.f_name }}&nbsp;{{ a.l_name }}</option>
+		{% endfor %}
+		</select>
+		<select multiple id="yyy" size="10" name="yyy">
+		</select>
+		</label>
+		<input type="hidden" id="hide" name="hide">
+		<input type="hidden" id="name_hide" name="name_hide">
+		<input type="button" value=">>" onclick="moveoutid()">
+		<input type="button" value="<<" onclick="moveinid()"><br><br>
+		<label for="cid"><span>client email ID*</span>
+		<input type="text" name="cid">
+		</label>
+		<input type="submit" value="" id="submit">
+		</form>
+		</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

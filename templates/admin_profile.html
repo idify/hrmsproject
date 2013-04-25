@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IDiFY Solutions - Index</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul class="dropdown">
+        	<li><a>Admin Profile</a>
+        		<ul class="sub_menu">
+        			 <li><a href="adminprofile">Edit Profile</a></li>
+        			 <li><a href="changepwd">Change Password</a></li>
+        			 <li><a href="logout">Logout</a></li>
+        		</ul>
+        	</li>
+        	<li><a>Employees</a>
+        		<ul class="sub_menu">
+        			<li><a href="adduser">Add an Employee</a></li>
+				<li><a href="allusers">All Users</a></li>
+				<li><a href="allcontacts">User Contacts</a></li>
+			</ul>
+        	</li>
+        	<li><a>Leave</a>
+        		<ul class="sub_menu">
+				<li><a href="usrs_leaves">User Leave</a></li>
+				<li><a href="admnleavesummary">Leave Summary</a></li>
+				<li><a href="approve">Approve Leave</a></li>
+        		</ul>
+        	</li>
+		<li><a>Projects</a>
+        		<ul class="sub_menu">
+        			<li><a href="createproject">Create Project</a></li>
+				<li><a href="allproject">All Projects</a></li>
+        		</ul>
+        	</li>
+		<li><a>Payroll</a>
+        		<ul class="sub_menu">
+        			<li><a href="emp_payroll">Employee Payroll</a></li>
+        		</ul>
+        	</li>
+		<li><a>DMS</a>
+        		<ul class="sub_menu">
+        			<li><a href="alldocs">Employee Documents</a></li>
+        		</ul>
+        	</li>
+		<li><a>Announcement</a>
+        		<ul class="sub_menu">
+				<li><a href="create_announcement">Create Announcement</a></li>
+				<li><a href="view_announcements">View All</a></li>
+        		</ul>
+        	</li>
+        </ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="createproject"><span>Create A Project</span></a></center>
+				</li>
+				<li>
+				<center><a href="approve"><span>Approve Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="create_announcement"><span>Create Announcement</span></a></center>
+				</li>
+				<li>
+				<center><a href="usrs_leaves"><span>User Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="emp_payroll"><span>Employees Payroll</span></a></center>
+				</li>
+				<li>
+				<center><a href="allproject"><span>View All Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="view_announcements"><span>View Announcements</span></a></center>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+				<h2>welcome {{ name }} - Admin</h2>
+		<h3>Your Profile<br><br>
+<div style="margin-left:25px;">
+<table width="80%" border=0 cellpadding=4 cellspacing=4>
+<tr><td>First Name</td><td>:</td><td>{{ obj.f_name }}</td></tr>
+<tr><td>Last Name</td><td>:</td><td>{{ obj.l_name }}</td></tr>
+<tr><td>Designation</td><td>:</td><td>{{ obj.desg }}</td></tr>
+<tr><td>Email ID</td><td>:</td><td>{{ obj.email }}</td></tr>
+{% if obj.gender %}
+<tr><td>Gender</td><td>:</td><td>{{ obj.gender }}</td></tr>
+{% else %}
+<tr><td>Gender</td><td>:</td><td></td></tr>
+{% endif %}
+{% if obj.marr_status %}
+<tr><td>Marrital Status</td><td>:</td><td>{{ obj.marr_status }}</td></tr>
+{% else %}
+<tr><td>Marrital Status</td><td>:</td><td></td></tr>
+{% endif %}
+{% if obj.dob %}
+<tr><td>Date of Birth</td><td>:</td><td>{{ obj.dob }}</td></tr>
+{% else %}
+<tr><td>Date of Birth</td><td>:</td><td></td></tr>
+{% endif %}
+{% if obj.contact %}
+<tr><td>Contact No.</td><td>:</td><td>{{ obj.contact }}</td></tr>
+{% else %}
+<tr><td>Contact No.</td><td>:</td><td></td></tr>
+{% endif %}
+{% if obj.address %}
+<tr><td>Address</td><td>:</td><td>{{ obj.address }}</td></tr>
+{% else %}
+<tr><td>Address</td><td>:</td><td></td></tr>
+{% endif %}
+</table>
+		</div></h3></div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

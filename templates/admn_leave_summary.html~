@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>IDiFY Solutions - Leave Summary</title>
+{% load staticfiles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul>
+		<li>
+			<a>admin profile</a>
+			<ul>
+				<li><a href="adminprofile">edit profile</a></li>
+				<li><a href="changepwd">change password</a></li>
+				<li><a href="logout">logout</a></li>
+			</ul>
+		</li>
+		<li>
+			<a>user</a>
+			<div style="z-index:100;">
+		<ul class="abcd">
+			<li><a href="adduser">add user</a></li>
+			<li><a href="allusers">all users</a></li>
+			<li><a href="allusers">user contacts</a></li>
+		</ul>
+			</div>
+		</li>
+		<li class="selected">
+			<a>leaves</a>
+			<ul>
+				<li><a href="usrs_leaves">User Leave</a></li>
+				<li><a href="admnleavesummary">Leave Summary</a></li>
+				<li><a href="approve">Approve Leave</a></li>
+			</ul>
+		</li>
+		<li>
+			<a>projects</a>
+			<ul>
+				<li><a href="createproject">create project</a></li>
+				<li><a href="allproject">all projects</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="emp_payroll">payroll</a>
+		</li>
+		<li>
+			<a href="alldocs">dms</a>
+		</li>
+		<li>
+			<a>announcement</a>
+			<ul>
+				<li><a href="create_announcement">to all</a></li>
+				<li><a href="view_announcements">view all</a></li>
+			</ul>
+		</li>
+	</ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="createproject"><span>Create A Project</span></a></center>
+				</li>
+				<li>
+				<center><a href="approve"><span>Approve Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="create_announcement"><span>Create Announcement</span></a></center>
+				</li>
+				<li>
+				<center><a href="usrs_leaves"><span>User Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="emp_payroll"><span>Employees Payroll</span></a></center>
+				</li>
+				<li>
+				<center><a href="allproject"><span>View All Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="view_announcements"><span>View Announcements</span></a></center>
+				</li>
+			</ul></div>
+		<div class="content">
+		<h2>Leave Summary</h2><br><br>
+		<h3>
+		<table width="50%" border=0 cellpadding=6 cellspacing=6>
+		<tr><td>RH Leaves</td><td>3</td></tr>
+		<tr><td>Personal Leaves</td><td>3</td></tr>
+		<tr><td>Casual Leaves</td><td>10</td></tr>
+		<tr><td>Marriage Leaves</td><td>15</td></tr>
+		<tr><td>Bevearment Leaves</td><td>3</td></tr>
+		<tr><td>Compulsary Leaves</td><td>6</td></tr>
+		</table></div></h3>
+		</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

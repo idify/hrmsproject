@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IDiFY Solutions</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+<script type="text/javascript">
+function frm_load()
+{
+document.login_form.uid.value="";
+document.login_form.pwd.value="";
+document.login_form.uid.focus();
+return true;
+}
+function chk()
+{
+if(document.login_form.uid.value=="")
+{
+alert("Please enter your Email ID");
+document.login_form.uid.focus();
+return false;
+}
+if(document.login_form.pwd.value=="")
+{
+alert("Please enter Password");
+document.login_form.pwd.focus();
+return false;
+}
+return true;
+}
+</script>
+</head>
+<body onload="return frm_load()">
+<div id="header" style="border-bottom: 1px solid #ffe600;">{% load staticfiles %}
+<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" alt="" width=200></a>
+</div>
+<div id="body">
+<font color="#97aeb3" size="72px"><div style="margin-top:80px; margin-left:400px;"><b>HRMS</b></div></font>
+<div class="content" style="margin-top:20px; margin-left:320px;">
+<h2>Please Login to Continue</h2></div><div class="content" style=" margin-left:260px;">
+<form action="login" name="login_form" method="post" onsubmit="return chk()">{% csrf_token %}
+<label for="username"> <span>user name*</span>
+<input type="text" name="uid" id="firstName">
+</label>
+<label for="pwd"> <span>password*</span>
+<input type="password" name="pwd" id="lastName">
+</label>
+<h3>{{ msg }}</h3><br>
+<input type="submit" value="" id="submit">
+</form>
+</div>
+</div>
+<div id="footer">
+</div>
+</body>
+</html>

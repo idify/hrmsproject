@@ -1,0 +1,43 @@
+<html>
+<head><title>Salary Slip</title>
+<style type="text/css">
+table, th, td
+{
+border: 1px solid silver;
+}
+</style>
+</head>
+<body>
+<center><br><br><table width="90%">
+<tr><th align=center bgcolor=silver colspan=7 height="50">IDIFY SOLUTIONS LLP</th></tr>
+<tr><td align=left colspan=7>Salary Slip for the Month of 
+{% ifequal obj2.for_mnth 1 %}January {{obj2.for_year}}{% endifequal %}
+{% ifequal obj2.for_mnth 2 %}February {{obj2.for_year}}{% endifequal %}
+{% ifequal obj2.for_mnth 3 %}March {{obj2.for_year}}{% endifequal %}
+{% ifequal obj2.for_mnth 4 %}April {{obj2.for_year}}{% endifequal %}
+{% ifequal obj2.for_mnth 5 %}May {{obj2.for_year}}{% endifequal %}
+{% ifequal obj2.for_mnth 6 %}June {{obj2.for_year}}{% endifequal %}
+{% ifequal obj2.for_mnth 7 %}July {{obj2.for_year}}{% endifequal %}
+{% ifequal obj2.for_mnth 8 %}August {{obj2.for_year}}{% endifequal %}
+{% ifequal obj2.for_mnth 9 %}September {{obj2.for_year}}{% endifequal %}
+{% ifequal obj2.for_mnth 10 %}October {{obj2.for_year}}{% endifequal %}
+{% ifequal obj2.for_mnth 11 %}November {{obj2.for_year}}{% endifequal %}
+{% ifequal obj2.for_mnth 12 %}December {{obj2.for_year}}{% endifequal %}</td></tr>
+<tr><td align=left colspan=3>Employee Name : {{obj1.f_name}}&nbsp;{{obj1.l_name}}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>Income :</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td align=center>S. No.</td><td align=center>Description</td><td align=center>Amount</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td align=right>1</td><td align=left>Basic:</td><td align=right>{{obj2.basic}}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td align=right>2</td><td align=left>HRA:</td><td align=right>{{obj2.hra}}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td align=right>3</td><td align=left>Conveyance</td><td align=right>{{obj2.convynce}}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td align=right>4</td><td align=left>Medical</td><td align=right>{{obj2.med}}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td align=right>5</td><td align=left>Bonus</td><td align=right>{{obj2.bonus}}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td align=left>Total Salary</td><td align=right>{{obj1.salary}}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td width="15%">&nbsp;</td><td width="25%">&nbsp;</td><td width="20%">&nbsp;</td><td width="10%">&nbsp;</td><td width="10%">&nbsp;</td><td width="10%">&nbsp;</td><td width="10%">&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td align=left>Net Salary</td><td>&nbsp;</td><td align=right>{{obj1.salary}}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><th align=center bgcolor=silver colspan=7>IDIFY SOLUTIONS LLP : FIRST FLOOR , E-2, SECTOR-3, NOIDA, UTTAR PRADESH-201301</th></tr>
+</table>
+<br><br><br><INPUT TYPE="button" onClick="window.print()" value="Print"></center>
+</body></html>

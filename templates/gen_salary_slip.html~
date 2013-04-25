@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IDiFY Solutions - Index</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+<script>
+function open_win() 
+{
+window.open("http://localhost:8000/generate_slip");
+}
+</script>
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul>
+		<li>
+			<a>user profile</a>
+			<div style="z-index:100;">
+		<ul>
+			<li><a href="edituser">edit profile</a></li>
+			<li><a href="empchangepwd">change password</a></li>
+			<li><a href="logout">logout</a></li>
+		</ul>
+			</div>
+		</li>
+		<li>
+			<a>leaves</a>
+		<ul>
+			<li><a href="applyforleave">apply for leave</a></li>
+			<li><a href="userleave">my leave</a></li>
+			<li><a href="leavesummary">leave summary</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>projects</a>
+		<ul>
+			<li><a href="myprojects">Assigned Projects</a></li>
+		</ul>
+		</li>
+		<li class="selected">
+			<a>payroll</a>
+		<ul>
+			<li><a href="salary_slip">Salary Slip</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>dms</a>
+		<ul>
+			<li><a href="upload">Upload a Document</a></li>
+			<li><a href="mydocs">My Documents</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>contacts</a>
+		<ul>
+			<li><a href="addcontact">Add A Contact</a></li>
+			<li><a href="mycontacts">My Contacts</a></li>
+		</ul>
+		</li>
+		<li>
+			<a href="announcements">announcement</a>
+		</li>
+	</ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="applyforleave"><span>Apply For Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="announcements"><span>View Announcements</span></a></center>
+				</li>
+				<li>
+				<center><a href="myprojects"><span>My Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="userleave"><span>My Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="salary_slip"><span>Salary Slip</span></a></center>
+				</li>
+				<li>
+				<center><a href="mycontacts"><span>My Contacts</span></a></center>
+				</li>
+				<li>
+				<center><a href="mydocs"><span>My Documents</span></a></center>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+				<h2>Generate Salary Slip</h2>
+<h3><div style="margin-left:25px;">
+{% if msg %}
+{{msg}}
+{% else %}
+Your salary slip has been generated.<br><br>
+<form><input type="button" value="Generate Slip" onclick="open_win()"></form>
+{% endif %}</h3>
+	</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

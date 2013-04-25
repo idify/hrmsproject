@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IDiFY Solutions - Index</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul class="dropdown">
+        	<li><a>Admin Profile</a>
+        		<ul class="sub_menu">
+        			 <li><a href="adminprofile">Edit Profile</a></li>
+        			 <li><a href="changepwd">Change Password</a></li>
+        			 <li><a href="logout">Logout</a></li>
+        		</ul>
+        	</li>
+        	<li><a>Employees</a>
+        		<ul class="sub_menu">
+        			<li><a href="adduser">Add an Employee</a></li>
+				<li><a href="allusers">All Users</a></li>
+				<li><a href="allcontacts">User Contacts</a></li>
+			</ul>
+        	</li>
+        	<li><a>Leave</a>
+        		<ul class="sub_menu">
+				<li><a href="usrs_leaves">User Leave</a></li>
+				<li><a href="admnleavesummary">Leave Summary</a></li>
+				<li><a href="approve">Approve Leave</a></li>
+        		</ul>
+        	</li>
+		<li><a>Projects</a>
+        		<ul class="sub_menu">
+        			<li><a href="createproject">Create Project</a></li>
+				<li><a href="allproject">All Projects</a></li>
+        		</ul>
+        	</li>
+		<li><a>Payroll</a>
+        		<ul class="sub_menu">
+        			<li><a href="emp_payroll">Employee Payroll</a></li>
+        		</ul>
+        	</li>
+		<li><a>DMS</a>
+        		<ul class="sub_menu">
+        			<li><a href="alldocs">Employee Documents</a></li>
+        		</ul>
+        	</li>
+		<li><a>Announcement</a>
+        		<ul class="sub_menu">
+				<li><a href="create_announcement">Create Announcement</a></li>
+				<li><a href="view_announcements">View All</a></li>
+        		</ul>
+        	</li>
+        </ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="content">
+			<h2>list of all Employees</h2><br>{% if msg %}<h3>{{msg}}</h3>{% else %}
+		<table width="90%" border=1>
+			<tr>
+				<th>FIRST NAME</th>
+				<th>LAST NAME</th>
+				<th>EMAIL ID</th>
+				<th>DESIGNATION</th>
+				<th>SALARY</th>
+				<th>DATE OF JOINING</th>
+				<th>GENDER</th>
+				<th>MARRITAL STATUS</th>
+				<th>DATE OF BIRTH</th>
+				<th>CONTACT</th>
+				<th>ADDRESS</th>
+			</tr>
+			{% for a in obj %}
+			<tr>
+				<td>{{ a.f_name }}</td>
+				<td>{{ a.l_name }}</td>
+				<td>{{ a.email }}</td>
+				<td>{{ a.desg }}</td>
+				<td>{{ a.salary }}</td>
+				<td>{{ a.doj }}</td>
+				<td>{{ a.gender }}</td>
+				<td>{{ a.marr_status }}</td>
+				<td>{{ a.dob }}</td>
+				<td>{{ a.contact }}</td>
+				<td>{{ a.address }}</td>
+			</tr>
+			{% endfor %}
+		</table>{% endif %}
+		</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

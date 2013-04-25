@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>IDiFY Solutions - Index</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul>
+		<li>
+			<a>admin profile</a>
+			<ul>
+				<li><a href="adminprofile">edit profile</a></li>
+				<li><a href="changepwd">change password</a></li>
+				<li><a href="logout">logout</a></li>
+			</ul>
+		</li>
+		<li class="selected">
+			<a>user</a>
+			<div style="z-index:100;">
+		<ul>
+			<li><a href="adduser">add user</a></li>
+			<li><a href="allusers">all users</a></li>
+			<li><a href="allcontacts">user contacts</a></li>
+		</ul>
+			</div>
+		</li>
+		<li>
+			<a>leaves</a>
+			<ul>
+				<li><a href="usrs_leaves">User Leave</a></li>
+				<li><a href="admnleavesummary">Leave Summary</a></li>
+				<li><a href="approve">Approve Leave</a></li>
+			</ul>
+		</li>
+		<li>
+			<a>projects</a>
+			<ul>
+				<li><a href="createproject">create project</a></li>
+				<li><a href="allproject">all projects</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="emp_payroll">payroll</a>
+		</li>
+		<li>
+			<a href="alldocs">dms</a>
+		</li>
+		<li>
+			<a>announcement</a>
+			<ul>
+				<li><a href="create_announcement">to all</a></li>
+				<li><a href="view_announcements">view all</a></li>
+			</ul>
+		</li>
+	</ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="createproject"><span>Create A Project</span></a></center>
+				</li>
+				<li>
+				<center><a href="approve"><span>Approve Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="create_announcement"><span>Create Announcement</span></a></center>
+				</li>
+				<li>
+				<center><a href="usrs_leaves"><span>User Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="emp_payroll"><span>Employees Payroll</span></a></center>
+				</li>
+				<li>
+				<center><a href="allproject"><span>View All Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="view_announcements"><span>View Announcements</span></a></center>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+		<h2>{{obj1.f_name}}&nbsp;{{obj1.l_name}} - Contacts</h2><br><h3>{%if msg %}{{msg}}{% else %}<br>
+		<table border=0>
+		{% for a in obj2 %}
+		<tr><th align=left>Name</th><td>{{a.name}}</td></tr>
+		<tr><th align=left>Phone No.</th><td>{{a.phone}}</td></tr>
+		<tr><th align=left>Address</th><td>{{a.address}}</td></tr>
+		<tr><th align=left>Added On</th><td>{{a.addedon}}</td></tr>
+		<tr><td colspan=2>&nbsp;</td></tr>
+		<tr><td colspan=2><a href="deletecontact?cid={{a.id}}&eid={{empid}}">Delete this Contact</a></td></tr>
+		<tr><td colspan=2>----------------------------------------------------------------------------------------------------</td></tr>
+		{% endfor %}
+		</table>{% endif %}</h3>
+		</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

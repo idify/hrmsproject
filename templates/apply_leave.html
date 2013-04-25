@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>IDiFY Solutions - Apply for Leave</title>
+<script>
+function validateform()
+{
+var date1=document.forms["usrleaveform"]["frmdate"].value;
+var date2=document.forms["usrleaveform"]["todate"].value;
+if(date1==null || date1==" " || date1=="")
+{
+alert("From date field cannot be blank.");
+return false;
+}
+if(date1==null || date2==" " || date1=="")
+{
+alert("To date field cannot be blank.");
+return false;
+}
+var year1=parseInt(date1.substring(0,4),10);
+var mnth1=parseInt(date1.substring(5,7),10);
+var days1=parseInt(date1.substring(8,10),10);
+var year2=parseInt(date2.substring(0,4),10);
+var mnth2=parseInt(date2.substring(5,7),10);
+var days2=parseInt(date2.substring(8,10),10);
+var frmdate=new Date(year1,mnth1,days1);
+var todate=new Date(year2,mnth2,days2);
+var today=new Date();
+var days=today.getDate();
+var mnth=today.getMonth()+1;
+var year=today.getFullYear();
+var todaydate=new Date(year,mnth,days);
+if(todaydate>frmdate)
+{
+alert("From date is past.");
+return false;
+}
+if(todaydate>todate)
+{
+alert("To date is past.");
+return false;
+}
+if(frmdate>todate)
+{
+alert("From date cannot be greator than to date");
+return false;
+}
+return true;
+}
+</script>
+{% load staticfiles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<script>
+$(function() {
+$( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
+});
+$(function() {
+$( "#datepicker1" ).datepicker({ dateFormat: "yy-mm-dd" });
+});
+</script>
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" alt="" width=200></a>
+	<ul class="dropdown">
+        	<li><a>Employee Profile</a>
+        		<ul class="sub_menu">
+        			<li><a href="edituser">Edit Profile</a></li>
+				<li><a href="changepwd">Change Password</a></li>
+				<li><a href="logout">Logout</a></li>
+        		</ul>
+        	</li>
+        	<li><a>Leaves</a>
+        		<ul class="sub_menu">
+        			<li><a href="applyforleave">Apply for Leave</a></li>
+				<li><a href="userleave">My Leave</a></li>
+				<li><a href="leavesummary">Leave Summary</a></li>
+			</ul>
+        	</li>
+        	<li><a>Projects</a>
+        		<ul class="sub_menu">
+				<li><a href="myprojects">Assigned Projects</a></li>
+        		</ul>
+        	</li>
+		<li><a>Payroll</a>
+        		<ul class="sub_menu">
+        			<li><a href="salary_slip">Salary Slip</a></li>
+        		</ul>
+        	</li>
+		<li><a>DMS</a>
+        		<ul class="sub_menu">
+        			<li><a href="upload">Upload a Document</a></li>
+				<li><a href="mydocs">My Documents</a></li>
+        		</ul>
+        	</li>
+		<li><a>Contacts</a>
+        		<ul class="sub_menu">
+        			<li><a href="addcontact">Add A Contact</a></li>
+				<li><a href="mycontacts">My Contacts</a></li>
+        		</ul>
+        	</li>
+		<li><a>Announcement</a>
+        		<ul class="sub_menu">
+				<a href="announcements">Announcements</a>
+        		</ul>
+        	</li>
+        </ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="applyforleave"><span>Apply For Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="announcements"><span>View Announcements</span></a></center>
+				</li>
+				<li>
+				<center><a href="myprojects"><span>My Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="userleave"><span>My Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="salary_slip"><span>Salary Slip</span></a></center>
+				</li>
+				<li>
+				<center><a href="mycontacts"><span>My Contacts</span></a></center>
+				</li>
+				<li>
+				<center><a href="mydocs"><span>My Documents</span></a></center>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+		<h2>Apply for leave</h2>
+		<h3>{{ msg }}</h2><br><br>
+<form name="usrleaveform" action="leaveapplied" onsubmit="return validateform()" method="post">{% csrf_token %}
+<label for="type"> <span>leave type</span>
+<select name="type">
+<option value="Select" selected="selected">Select</option>
+<option value="RH">RH Leave</option>
+<option value="Personal">Personal Leave</option>
+<option value="Casual">Casual Leave</option>
+<option value="Marriage">Marriage Leave</option>
+<option value="Bevearment">Bevearment Leave</option>
+<option value="Compulsary">Compulsary Leave</option>
+</select>
+<label for="frm"> <span>from date</span>
+<input type="text" name="frmdate" id="datepicker">
+</label>
+<label for="to"> <span>to date</span>
+<input type="text" name="todate" id="datepicker1">
+</label>
+<label for="desc"> <span>description</span>
+<textarea rows="4" cols="40" name="desc">
+</textarea>
+</label>
+<input type="submit" value="" id="submit">
+</form>
+	</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

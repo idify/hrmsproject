@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>IDiFY Solutions - Leave Summary</title>
+{% load staticfiles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul>
+		<li>
+			<a>user profile</a>
+			<div style="z-index:100;">
+		<ul>
+			<li><a href="edituser">edit profile</a></li>
+			<li><a href="empchangepwd">change password</a></li>
+			<li><a href="logout">logout</a></li>
+		</ul>
+			</div>
+		</li>
+		<li class="selected">
+			<a>leaves</a>
+			<div style="z-index:100;">
+		<ul>
+			<li><a href="applyforleave">apply for leave</a></li>
+			<li><a href="userleave">my leave</a></li>
+			<li><a href="leavesummary">leave summary</a></li>
+		</ul>
+			</div>
+
+		</li>
+		<li>
+			<a>projects</a>
+		<ul>
+			<li><a href="myprojects">Assigned Projects</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>payroll</a>
+		<ul>
+			<li><a href="salary_slip">Salary Slip</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>dms</a>
+		<ul>
+			<li><a href="upload">Upload a Document</a></li>
+			<li><a href="mydocs">My Documents</a></li>
+		</ul>
+		</li>
+		<li>
+			<a>contacts</a>
+		<ul>
+			<li><a href="addcontact">Add A Contact</a></li>
+			<li><a href="mycontacts">My Contacts</a></li>
+		</ul>
+		</li>
+		<li>
+			<a href="announcements">announcement</a>
+		</li>
+	</ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="applyforleave"><span>Apply For Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="announcements"><span>View Announcements</span></a></center>
+				</li>
+				<li>
+				<center><a href="myprojects"><span>My Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="userleave"><span>My Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="salary_slip"><span>Salary Slip</span></a></center>
+				</li>
+				<li>
+				<center><a href="mycontacts"><span>My Contacts</span></a></center>
+				</li>
+				<li>
+				<center><a href="mydocs"><span>My Documents</span></a></center>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+		<h2>My Leave Summary</h2><br><br>
+		<div style="margin-left:20px;"><h3>
+		<table width="70%" border=0 cellpadding=6 cellspacing=6>
+		<tr><td>RH Leaves</td><td>{{ rhl }}</td><td><a href="leavedetails?val=1">Details</a></td></tr>
+		<tr><td>Personal Leaves</td><td>{{ prsnl }}</td><td><a href="leavedetails?val=2">Details</a></td></tr>
+		<tr><td>Casual Leaves</td><td>{{ csul }}</td><td><a href="leavedetails?val=3">Details</a></td></tr>
+		<tr><td>Marriage Leaves</td><td>{{ mrrgl }}</td><td><a href="leavedetails?val=4">Details</a></td></tr>
+		<tr><td>Bevearment Leaves</td><td>{{ bvrmntl }}</td><td><a href="leavedetails?val=5">Details</a></td></tr>
+		<tr><td>Compulsary Leaves</td><td>{{ compl }}</td><td><a href="leavedetails?val=6">Details</a></td></tr>
+		</table></div></h3>
+		</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

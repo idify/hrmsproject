@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>IDiFY Solutions - Leave Summary</title>
+{% load staticfiles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.png" alt=""></a>
+	<ul>
+		<li class="selected">
+			<a href="adminprofile">admin profile</a>
+			<ul>
+				<li><a href="adminprofile">edit profile</a></li>
+				<li><a href="changepwd">change password</a></li>
+				<li><a href="logout">logout</a></li>
+			</ul>
+		</li>
+		<li>
+			<a>user</a>
+			<div style="z-index:100;">
+		<ul class="abcd">
+			<li><a href="adduser">add user</a></li>
+			<li><a href="allusers">all users</a></li>
+			<li><a href="allusers">user contacts</a></li>
+		</ul>
+			</div>
+		</li>
+		<li>
+			<a>leaves</a>
+			<ul>
+				<li><a href="usrs_leaves">User Leave</a></li>
+				<li><a href="admnleavesummary">Leave Summary</a></li>
+				<li><a href="approve">Approve Leave</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="services.html">projects</a>
+		</li>
+		<li>
+			<a href="emp_payroll">payroll</a>
+		</li>
+		<li>
+			<a href="alldocs">dms</a>
+		</li>
+		<li>
+			<a>announcement</a>
+		<ul>
+			<li><a href="create_announcement">To All</a>
+		</ul>
+		</li>
+	</ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>IDIFY SOLUTIONS LLP</h3>
+			<ul>
+				<li><BR><BR><BR><BR><BR>
+				<center>HRMS</center><BR><BR><BR><BR><BR>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+		<h2>Approve Leave</h2><br><br>
+		<div style="margin-left:20px;"><h3>
+		</h3></div>
+		</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>

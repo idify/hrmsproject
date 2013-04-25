@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>IDiFY Solutions - Leave Summary</title>
+{% load staticfiles %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">{% load staticfiles %}
+		<a class="logo"><img src="{{ STATIC_URL }}images/logo.jpg" width=200 alt=""></a>
+	<ul class="dropdown">
+        	<li><a>Admin Profile</a>
+        		<ul class="sub_menu">
+        			 <li><a href="adminprofile">Edit Profile</a></li>
+        			 <li><a href="changepwd">Change Password</a></li>
+        			 <li><a href="logout">Logout</a></li>
+        		</ul>
+        	</li>
+        	<li><a>Employees</a>
+        		<ul class="sub_menu">
+        			<li><a href="adduser">Add an Employee</a></li>
+				<li><a href="allusers">All Users</a></li>
+				<li><a href="allcontacts">User Contacts</a></li>
+			</ul>
+        	</li>
+        	<li><a>Leave</a>
+        		<ul class="sub_menu">
+				<li><a href="usrs_leaves">User Leave</a></li>
+				<li><a href="admnleavesummary">Leave Summary</a></li>
+				<li><a href="approve">Approve Leave</a></li>
+        		</ul>
+        	</li>
+		<li><a>Projects</a>
+        		<ul class="sub_menu">
+        			<li><a href="createproject">Create Project</a></li>
+				<li><a href="allproject">All Projects</a></li>
+        		</ul>
+        	</li>
+		<li><a>Payroll</a>
+        		<ul class="sub_menu">
+        			<li><a href="emp_payroll">Employee Payroll</a></li>
+        		</ul>
+        	</li>
+		<li><a>DMS</a>
+        		<ul class="sub_menu">
+        			<li><a href="alldocs">Employee Documents</a></li>
+        		</ul>
+        	</li>
+		<li><a>Announcement</a>
+        		<ul class="sub_menu">
+				<li><a href="create_announcement">Create Announcement</a></li>
+				<li><a href="view_announcements">View All</a></li>
+        		</ul>
+        	</li>
+        </ul>
+	</div>
+	<div id="body" style="z-index:99;">
+		<div class="sidebar">
+			<h3>QUICK LINKS</h3>
+			<ul>
+				<li>
+				<center><a href="createproject"><span>Create A Project</span></a></center>
+				</li>
+				<li>
+				<center><a href="approve"><span>Approve Leave</span></a></center>
+				</li>
+				<li>
+				<center><a href="create_announcement"><span>Create Announcement</span></a></center>
+				</li>
+				<li>
+				<center><a href="usrs_leaves"><span>User Leaves</span></a></center>
+				</li>
+				<li>
+				<center><a href="emp_payroll"><span>Employees Payroll</span></a></center>
+				</li>
+				<li>
+				<center><a href="allproject"><span>View All Projects</span></a></center>
+				</li>
+				<li>
+				<center><a href="view_announcements"><span>View Announcements</span></a></center>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+		<h2>Leave Details<br>
+		Employee Name : {{ obj1.f_name }}&nbsp;&nbsp;{{ obj1.l_name }}
+		<br><br><div style="margin-left:20px;"><h3>
+		<table width="50%" border=0 cellpadding=6 cellspacing=6>
+		<tr><td>RH Leaves</td><td>{{ obj2.rhl }}</td><td><a href="userleavedetails?id={{obj1.usr_id}}&type=1">Details</a></td></tr>
+		<tr><td>Personal Leaves</td><td>{{ obj2.prsnl }}</td><td><a href="userleavedetails?id={{obj1.usr_id}}&type=2">Details</a></td></tr>
+		<tr><td>Casual Leaves</td><td>{{ obj2.csul }}</td><td><a href="userleavedetails?id={{obj1.usr_id}}&type=3">Details</a></td></tr>
+		<tr><td>Marriage Leaves</td><td>{{ obj2.mrrgl }}</td><td><a href="userleavedetails?id={{obj1.usr_id}}&type=4">Details</a></td></tr>
+		<tr><td>Beavearment Leaves</td><td>{{obj2.bvrmntl}}</td><td><a href="userleavedetails?id={{obj1.usr_id}}&type=5">Details</a></td></tr>
+		<tr><td>Compulsary Leaves</td><td>{{ obj2.compl }}</td><td><a href="userleavedetails?id={{obj1.usr_id}}&type=6">Details</a></td></tr>
+		</table></div></h3>
+		</div>
+	</div>
+	<div id="footer">
+	</div>
+</body>
+</html>
